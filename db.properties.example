@@ -1,0 +1,6 @@
+# Copy this file to db.properties and set your MySQL password
+host=localhost
+port=3306
+database=re_service_db
+user=root
+password=YOUR_MYSQL_PASSWORD_HERE
