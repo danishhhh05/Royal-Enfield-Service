@@ -95,19 +95,6 @@ gudi1/
 
 ---
 
-## 👥 Team
-
-| Name | USN |
-|------|-----|
-| Syed Danish Mahmood | 1MS24AI062 |
-| U Hari Sathvik | 1MS24AI066 |
-
-**Department:** AI & ML, Ramaiah Institute of Technology
-**Course:** 24AIL48 — Full Stack and MERN Stack Lab
-**Guide:** Dr. A. Ajina
-
----
-
 ## ✍️ Author
 
 **Danish** — AI/ML Engineer &nbsp; GitHub: [@danishhhh05](https://github.com/danishhhh05)
