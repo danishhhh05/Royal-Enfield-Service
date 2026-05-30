@@ -36,10 +36,10 @@ A Java Swing desktop application built for Royal Enfield authorized service cent
 
 ## 🏗️ Architecture
 
-Presentation Layer  →  Java Swing UI (Dashboard, Panels)
-Business Layer      →  Java POJOs (Customer, ServiceRecord)
-Data Access Layer   →  DAO Pattern (CustomerDAO, ServiceDAO)
-Database Layer      →  MySQL (re_service_db)
+    Presentation Layer  →  Java Swing UI (Dashboard, Panels)
+    Business Layer      →  Java POJOs (Customer, ServiceRecord)
+    Data Access Layer   →  DAO Pattern (CustomerDAO, ServiceDAO)
+    Database Layer      →  MySQL (re_service_db)
 
 **Design Patterns:** DAO Pattern, Singleton JDBC Connection, Layered Architecture
 
@@ -47,12 +47,12 @@ Database Layer      →  MySQL (re_service_db)
 
 ## 🗃️ Database Schema
 
-customers
-  id, name, phone, email, address, created_at
+    customers
+      id, name, phone, email, address, created_at
 
-service_records
-  id, customer_id (FK), bike_model, service_type,
-  status, amount, service_date, notes
+    service_records
+      id, customer_id (FK), bike_model, service_type,
+      status, amount, service_date, notes
 
 Relationship: One customer → Many service records (CASCADE DELETE)
 
@@ -68,30 +68,32 @@ Relationship: One customer → Many service records (CASCADE DELETE)
 Edit db.properties with your MySQL credentials
 
 **Step 2 — Compile and run:**
-run.bat
+
+    run.bat
 
 **Or manually:**
-javac -cp "lib/*" -d out (Get-ChildItem -Path "src" -Recurse -Filter "*.java" | % { $_.FullName })
-java -cp "lib/*;out" com.royalenfield.service.Main
+
+    javac -cp "lib/*" -d out (Get-ChildItem -Path "src" -Recurse -Filter "*.java" | % { $_.FullName })
+    java -cp "lib/*;out" com.royalenfield.service.Main
 
 ---
 
 ## 📁 Project Structure
 
-gudi1/
-├── lib/
-│   └── mysql-connector-j-9.7.0.jar
-├── src/com/royalenfield/service/
-│   ├── Main.java
-│   ├── Dashboard.java
-│   ├── CustomerPanel.java / ServicePanel.java
-│   ├── ReportsPanel.java / SettingsPanel.java
-│   ├── CustomerDAO.java / ServiceDAO.java
-│   ├── DBConnection.java
-│   └── AppColors.java / UIHelper.java
-├── database.sql
-├── db.properties
-└── run.bat
+    gudi1/
+    ├── lib/
+    │   └── mysql-connector-j-9.7.0.jar
+    ├── src/com/royalenfield/service/
+    │   ├── Main.java
+    │   ├── Dashboard.java
+    │   ├── CustomerPanel.java / ServicePanel.java
+    │   ├── ReportsPanel.java / SettingsPanel.java
+    │   ├── CustomerDAO.java / ServiceDAO.java
+    │   ├── DBConnection.java
+    │   └── AppColors.java / UIHelper.java
+    ├── database.sql
+    ├── db.properties
+    └── run.bat
 
 ---
 
