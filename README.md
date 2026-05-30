@@ -1,113 +1,113 @@
-# Royal Enfield Service Management System
+# 🏍️ Royal Enfield Service Management System
 
-A premium dark-mode Java Swing desktop app for managing customers and bike service records.
+> A desktop application for managing Royal Enfield service center operations — customers, bike servicing, status tracking, and revenue analytics.
 
-## Requirements
+---
 
-- **Java 17+** (JDK with `javac` and `java`)
-- **MySQL Server 8.x** (running locally)
-- **MySQL Connector/J** — download `mysql-connector-j-x.x.x.jar` from [MySQL](https://dev.mysql.com/downloads/connector/j/) and place it in the `lib` folder
+## 📌 About
 
-## Quick start
+A Java Swing desktop application built for Royal Enfield authorized service centers to replace paper registers with a structured, searchable, and analytics-driven management system. Supports full CRUD on customers and service records with a modern dark-themed UI.
 
-### 1. Install and start MySQL
+---
 
-- Install [MySQL Community Server](https://dev.mysql.com/downloads/mysql/)
-- Start the MySQL service (Windows: Services → MySQL80 → Start)
-- Remember the **root password** you set during installation
+## ✨ Features
 
-### 2. Configure the database
+- 📋 **Customer Management** — Add, update, delete, and search customers
+- 🔧 **Service Records** — Log bike model, service type, status, amount, and date
+- 📊 **Live Dashboard** — Real-time stats (total customers, active services, revenue)
+- 📈 **Reports Module** — Recent service history and summary analytics
+- ⚙️ **Settings Panel** — Configure MySQL connection without touching code
+- 🗄️ **Auto Setup** — Database and tables created automatically on first run
 
-**Option A — In the app (easiest)**
+---
 
-1. Run the application (see step 4)
-2. Open **Settings** in the sidebar
-3. Enter:
-   - Host: `localhost`
-   - Port: `3306`
-   - Database: `re_service_db`
-   - Username: `root`
-   - Password: *your MySQL root password*
-4. Click **Save & Connect**
-5. Click **Create Tables** (adds tables + sample data on first run)
+## 🛠️ Tech Stack
 
-**Option B — Manual SQL**
+| Layer | Technology |
+|-------|------------|
+| Language | Java JDK 17+ |
+| GUI | Java Swing (javax.swing) |
+| Database | MySQL 8.x |
+| DB Driver | MySQL Connector/J 9.7.0 |
+| Config | db.properties |
+| Build | javac + run.bat |
 
-```bash
-mysql -u root -p < database.sql
-```
+---
 
-Then create `db.properties` from the example:
+## 🏗️ Architecture
 
-```bash
-copy db.properties.example db.properties
-```
+Presentation Layer  →  Java Swing UI (Dashboard, Panels)
+Business Layer      →  Java POJOs (Customer, ServiceRecord)
+Data Access Layer   →  DAO Pattern (CustomerDAO, ServiceDAO)
+Database Layer      →  MySQL (re_service_db)
 
-Edit `db.properties` and set your password.
+**Design Patterns:** DAO Pattern, Singleton JDBC Connection, Layered Architecture
 
-### 3. Add JDBC driver
+---
 
-```
-f:\gudi1\lib\mysql-connector-j-9.3.0.jar
-```
+## 🗃️ Database Schema
 
-(Any recent `mysql-connector-j*.jar` filename is fine.)
+customers
+  id, name, phone, email, address, created_at
 
-### 4. Run the application
+service_records
+  id, customer_id (FK), bike_model, service_type,
+  status, amount, service_date, notes
 
-**Windows:**
+Relationship: One customer → Many service records (CASCADE DELETE)
 
-```bat
+---
+
+## 🚀 How to Run
+
+**Prerequisites:**
+- Java JDK 17+
+- MySQL 8.x running locally
+
+**Step 1 — Configure database:**
+Edit db.properties with your MySQL credentials
+
+**Step 2 — Compile and run:**
 run.bat
-```
 
-**Manual:**
+**Or manually:**
+javac -cp "lib/*" -d out (Get-ChildItem -Path "src" -Recurse -Filter "*.java" | % { $_.FullName })
+java -cp "lib/*;out" com.royalenfield.service.Main
 
-```bat
-cd F:\gudi1\src
-javac -cp ".;..\lib\*" com\royalenfield\service\*.java
-java -cp ".;..\lib\*" com.royalenfield.service.Main
-```
+---
 
-## Features
+## 📁 Project Structure
 
-| Module | Features |
-|--------|----------|
-| **Dashboard** | Live stats, clock, quick actions |
-| **Customers** | Search, add, update, delete |
-| **Services** | Link to customer, status, amount, date |
-| **Reports** | Summary + recent services table |
-| **Settings** | Test/save DB connection |
+gudi1/
+├── lib/
+│   └── mysql-connector-j-9.7.0.jar
+├── src/com/royalenfield/service/
+│   ├── Main.java
+│   ├── Dashboard.java
+│   ├── CustomerPanel.java / ServicePanel.java
+│   ├── ReportsPanel.java / SettingsPanel.java
+│   ├── CustomerDAO.java / ServiceDAO.java
+│   ├── DBConnection.java
+│   └── AppColors.java / UIHelper.java
+├── database.sql
+├── db.properties
+└── run.bat
 
-## Project structure
+---
 
-```
-src/com/royalenfield/service/
-  Main.java           — Entry point
-  AppColors.java      — Theme colors
-  DBConnection.java   — MySQL + db.properties
-  CustomerDAO.java    — Customer CRUD
-  ServiceDAO.java     — Service CRUD
-  UIHelper.java       — Styled components
-  Dashboard.java      — Main window
-  CustomerPanel.java
-  ServicePanel.java
-  ReportsPanel.java
-  SettingsPanel.java
-```
+## 👥 Team
 
-## Troubleshooting
+| Name | USN |
+|------|-----|
+| Syed Danish Mahmood | 1MS24AI062 |
+| U Hari Sathvik | 1MS24AI066 |
 
-| Problem | Solution |
-|---------|----------|
-| `MySQL JDBC driver not found` | Put `mysql-connector-j.jar` in `lib/` |
-| `Access denied for user 'root'` | Wrong password in Settings or `db.properties` |
-| `Communications link failure` | Start MySQL service |
-| Stats show 0 | Connect DB in Settings → Create Tables |
-| `java` not recognized | Install JDK and add to PATH |
+**Department:** AI & ML, Ramaiah Institute of Technology
+**Course:** 24AIL48 — Full Stack and MERN Stack Lab
+**Guide:** Dr. A. Ajina
 
-## Environment variables (optional)
+---
 
-Instead of `db.properties`, you can set:
+## ✍️ Author
 
-- `RE_DB_HOST`, `RE_DB_PORT`, `RE_DB_NAME`, `RE_DB_USER`, `RE_DB_PASSWORD`
+**Danish** — AI/ML Engineer &nbsp; GitHub: [@danishhhh05](https://github.com/danishhhh05)
